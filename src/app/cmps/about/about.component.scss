@@ -18,4 +18,12 @@
             width: 100%;
         }
     }
+
+    a {
+        text-decoration: none;
+        color: #FFAA54;
+        &:hover {
+            color: #FF8A14;
+        }
+    }
 }
