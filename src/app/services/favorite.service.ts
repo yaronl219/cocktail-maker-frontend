@@ -26,8 +26,8 @@ export class FavoriteService {
     this.loadFavorites()
     let favorites = this.getFavoritesFromStorage()
     favorites = favorites.filter(cocktail => cocktail._id !== id)
-    this.setState(favorites)
     this.storageService.saveToStorage('favorites', favorites)
+    this.setState(favorites)
   }
 
   isFavorite(id: string) {
@@ -38,7 +38,6 @@ export class FavoriteService {
   }
 
   subscribeToFavorites(): Observable<CocktailMinified[]> {
-    
     return this.favorites.asObservable()
   }
 

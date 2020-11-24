@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CocktailMinified } from 'src/app/interface/Cocktail';
 import { FavoriteService } from 'src/app/services/favorite.service';
 
@@ -9,20 +9,25 @@ import { FavoriteService } from 'src/app/services/favorite.service';
 })
 export class DrinkMinifiedComponent implements OnInit {
   @Input() cocktail: CocktailMinified
-  
+
   constructor(private favoriteService: FavoriteService) { }
-  
+
   isFavorite: Boolean
-  
-  
+
+
   ngOnInit(): void {
+    // set initial state
     this.isFavorite = this.favoriteService.isFavorite(this.cocktail._id)
+    // subscribe to future changes
+    this.favoriteService.subscribeToFavorites().subscribe(favorites => {
+      this.isFavorite = this.favoriteService.isFavorite(this.cocktail._id)
+    })
   }
 
   onToggleFavorite() {
     (this.isFavorite) ? this.favoriteService.removeFavorite(this.cocktail._id) :
       this.favoriteService.addToFavorites(this.cocktail)
-      this.isFavorite = !this.isFavorite
+    this.isFavorite = !this.isFavorite
   }
 
 }
