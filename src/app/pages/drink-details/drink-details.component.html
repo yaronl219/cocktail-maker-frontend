@@ -1,0 +1,46 @@
+<button (click)="onGoBack()" class="go-back">Back home</button>
+<mat-progress-spinner *ngIf="!cocktail" mode="indeterminate"></mat-progress-spinner>
+    <div *ngIf="cocktail" class="drink-details-container">
+        <div class="left">
+            <div class="img-container">
+                <img src={{cocktail.strDrinkThumb}} />
+            </div>
+            <div class="star-container">
+                <app-star-rating (onAddRating)="onAddRating($event)" [ratings]="cocktail.ratings" [avgRating]="cocktail.avgRating"></app-star-rating>
+            </div>
+        </div>
+        <div class="right">
+            <div class="drink-header" >
+                <h2>{{cocktail.strDrink}}</h2>
+                </div>
+                <div class="drink-features">
+                    <ul>
+                        <li>{{cocktail.strCategory}}</li>
+                        <li>{{cocktail.strAlcoholic}}</li>
+                        <li>Served in {{cocktail.strGlass}}</li>
+                    </ul>
+                </div>
+                <div class="drink-ingredients">
+                    <h3>
+                        Ingredients
+                    </h3>
+                    <ul>
+                        <li *ngFor="let ingredient of ingredients">{{ingredient}}</li>
+                    </ul>
+                </div>
+                <div class="drink-instrunctions">
+                    <h3>Instructions</h3>
+                    <p>{{cocktail.strInstructions}}</p>
+                </div>
+                <div *ngIf="cocktail.strVideo" class="video-player-container">
+                    <app-video-player [videoId]="cocktail.strVideo"></app-video-player>
+                </div>
+        </div>
+        <div class="favorite-container">
+            <div (click)="onToggleFavorite()" class="favorite-star-container">
+                <img *ngIf="isFavorite" src="../../../assets/imgs/star-filled.svg" />
+                <img *ngIf="!isFavorite" src="../../../assets/imgs/star-hollow.svg" />
+            </div>
+        </div>
+
+</div>

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cocktail-maker';
+
+  isFavoritesBarOpen = false
+
+  toggleFavoriteBarOpen():void {
+    this.isFavoritesBarOpen = !this.isFavoritesBarOpen
+  }
 }

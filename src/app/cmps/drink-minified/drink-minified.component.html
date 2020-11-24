@@ -1,0 +1,20 @@
+<div class="drink-minified-container">
+    <a routerLink="/cocktail/{{cocktail._id}}">
+    <div class="img-container">
+        <div class="drink-img" style="background-image: url({{cocktail.strDrinkThumb}});">
+        </div>
+    </div>
+    <div class="details-container">
+        <h3>{{cocktail.strDrink}}</h3>
+        <div>{{cocktail.strAlcoholic}} {{cocktail.strCategory | lowercase}}</div>
+    </div>
+</a> 
+    <div class="favorite-container" (click)="onToggleFavorite()">
+        <div *ngIf="isFavorite">
+            <img src="../../../assets/imgs/star-filled.svg" />
+        </div>
+        <div *ngIf="!isFavorite">
+            <img src="../../../assets/imgs/star-hollow.svg" />
+        </div>
+    </div>
+</div>

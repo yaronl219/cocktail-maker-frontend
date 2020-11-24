@@ -1,0 +1,18 @@
+<mat-sidenav-container (window:resize)="onResize($event)" autosize>
+    <mat-sidenav [opened]="isFilterBarOpen" mode="side">
+<app-drinks-filter-sidebar (onFilterEvent)="onFilterByParameter($event)" [filters]="filters"></app-drinks-filter-sidebar>
+</mat-sidenav>
+<div class="top-filter-container">
+    <button (click)="toggleFilterBarOpen()" class="filter-sidebar-btn">
+        <mat-icon>
+            filter_list
+        </mat-icon>
+    </button>
+    <app-drinks-filter-top (onFilterEvent)="onFilterName($event)"></app-drinks-filter-top>
+</div>
+<mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+<div class="drink-list-container"*ngIf="!isLoading">
+<app-drink-list  [cocktails]="cocktails"></app-drink-list>
+<app-paginator [currPage]="query.p" (onPageSwitchEvent)="onPageSwitch($event)" [cocktailAmount]="cocktailAmount"></app-paginator>
+</div>
+</mat-sidenav-container>

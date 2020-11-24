@@ -1,0 +1,18 @@
+<div class="top-filter-container">
+    <!-- <input type="text" placeholder="Search drinks by name" [(ngModel)]="filter" (ngModelChange)="this.filterUpdate.next($event)" /> -->
+    
+    
+          <input type="text"
+                 placeholder="Search drinks by name"
+                 aria-label="Drinks"
+                 matInput
+                 [(ngModel)]="filter" 
+                 (ngModelChange)="this.filterUpdate.next($event)"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelect($event)">
+            <mat-option *ngFor="let option of filteredOptions" [value]="option._id" >
+              {{option.strDrink}}
+            </mat-option>
+          </mat-autocomplete>
+
+</div>

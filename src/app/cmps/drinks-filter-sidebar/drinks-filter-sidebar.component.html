@@ -1,0 +1,8 @@
+
+    <div *ngIf="filters" class="filters-container">
+        <div class="filter-header"><h3>Filter By:</h3></div>
+        <app-drinks-filter-sub (onChangeFilter)="onChangeFilter($event)" [filters]="filters.alcoholic" filterHeader="a" title="Alcoholic"></app-drinks-filter-sub>
+        <app-drinks-filter-sub (onChangeFilter)="onChangeFilter($event)" [filters]="filters.glass" filterHeader="g" title="Glass type"></app-drinks-filter-sub>
+        <app-drinks-filter-sub (onChangeFilter)="onChangeFilter($event)" [filters]="filters.category" filterHeader="c" title="Category"></app-drinks-filter-sub>
+        <app-drinks-filter-sub (onChangeFilter)="onChangeFilter($event)" [filters]="filters.ingredients" filterHeader="i" title="Ingredients"></app-drinks-filter-sub>
+    </div>

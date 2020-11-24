@@ -1,0 +1,20 @@
+<nav>
+    <div class="logo">
+        <a routerLink="/">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/572-tropical-drink.svg" />
+            </div>
+                <h1>Cocktail Maker</h1>
+        </a>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li (click)="toggleAboutDisplayed($event)">About</li>
+            <li><a routerLink="/cocktail/random">Random</a></li>
+            <li (click)="toggleFavoritesBar.emit($event)" >Favorites</li>
+        </ul>
+    </div>
+    <div class="about-container" [ngClass]="{'hidden':!aboutDisplayed}" (click)="toggleAboutDisplayed($event)">
+        <app-about></app-about>
+    </div>
+</nav>

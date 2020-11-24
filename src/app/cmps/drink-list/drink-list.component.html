@@ -1,0 +1,12 @@
+<div class="drink-list-container">
+<ul>
+    <li *ngFor="let cocktail of cocktails">    
+        <app-drink-minified [cocktail]="cocktail"></app-drink-minified>
+    </li>
+</ul>
+<div *ngIf="!cocktails.length" class="empty-state">
+    <h3>Can't find cocktails</h3>
+    <p>Looks like there are no cocktails matching your search criteria</p>
+    <p>Try revising your query or <a routerLink="/cocktail/random">Find a random cocktail!</a></p>
+</div>
+</div>

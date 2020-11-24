@@ -1,0 +1,15 @@
+
+
+<div *ngIf="filters.length" class="sub-filter-container">
+    <h4>{{title}}</h4>
+    <ul>
+        <li *ngFor="let filter of filters.slice(0,amountOfFiltersToDisplay)">
+            <input [id]="filter" type="checkbox" [checked]="isChecked(filter)" (change)="onCheck($event,filter)" />
+            <label [for]="filter">{{filter}}</label>
+        </li>
+    </ul>
+    <div class="show-more-less" *ngIf="filters.length>=5">
+        <div class="show-more-less" *ngIf="amountOfFiltersToDisplay !== filters.length" (click)="toggleAmountOfFilters()" >Show all {{filters.length}} options</div>
+        <div class="show-more-less" *ngIf="amountOfFiltersToDisplay === filters.length" (click)="toggleAmountOfFilters()">Show Less</div>
+    </div>
+</div>

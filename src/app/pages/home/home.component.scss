@@ -1,0 +1,18 @@
+.top-filter-container {
+    display: flex;
+    padding: 0.5rem;
+
+    button {
+        margin-right: 0.5rem;
+    }
+}
+app-drinks-filter-top {
+    flex-grow: 1;
+}
+
+@media screen and (min-width: 600px) {
+    .filter-sidebar-btn {
+        display: none;
+        margin-right: 1rem;
+    }
+}

@@ -1,0 +1,45 @@
+.drink-minified-container {
+    background-color: aliceblue;
+    display: flex;
+
+    h3 {
+        margin: 0;
+    }
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    &:hover {
+        background-color: teal;
+    }
+}
+
+.details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.drink-img {
+    width: 5rem;
+    height: 5rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.5rem;
+}
+
+.favorite-container {
+    width: 2rem;
+    cursor: pointer;
+    img {
+        width: 100%;
+    }
+}
+
+a {
+    display: flex;
+    flex-grow: 1;
+    text-decoration: none;
+    color: rgb(32,32,32);
+    .drink-img {
+     margin-right: 0.5rem;   
+    }
+}

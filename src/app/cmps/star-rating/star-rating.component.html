@@ -1,0 +1,14 @@
+<div class="ratings-container">
+<div *ngIf="avgRating" class="avg-rating">
+    Average rating of {{avgRating}} from {{ratings.length}} reviews
+</div>
+<div *ngIf="!avgRating" class="avg-rating">
+    Looks like there are no reviews yet. why not rate now?
+</div>
+<div  (mouseleave)="onHover(0)" class="star-rating-container">
+    <div *ngFor="let star of possibleRatings" class="star" (mouseenter)="onHover(star)" (click)="onClickStar(star)">
+        <img *ngIf="star <= currRating" src="../../../assets/imgs/star-filled.svg" />
+        <img *ngIf="star > currRating" src="../../../assets/imgs/star-hollow.svg" />
+    </div>
+</div>
+</div>
