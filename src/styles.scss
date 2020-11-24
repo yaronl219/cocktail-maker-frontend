@@ -1,7 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; min-height: 100vh; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #FAFAFA;}
+body { margin: 0;
+     font-family: Roboto, "Helvetica Neue", sans-serif;
+      background-color: #FAFAFA;
+      color: rgb(32,32,32);
+    }
 
 .mat-paginator-container,
 .mat-drawer-inner-container {

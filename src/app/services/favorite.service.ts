@@ -18,8 +18,8 @@ export class FavoriteService {
     this.loadFavorites()
     const favorites = this.getFavoritesFromStorage()
     favorites.push(favoriteCocktail)
-    this.setState(favorites)
     this.storageService.saveToStorage('favorites', favorites)
+    this.setState(favorites)
   }
 
   removeFavorite(id: string) {

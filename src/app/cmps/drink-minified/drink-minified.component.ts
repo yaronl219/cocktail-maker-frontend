@@ -12,7 +12,7 @@ export class DrinkMinifiedComponent implements OnInit {
 
   constructor(private favoriteService: FavoriteService) { }
 
-  isFavorite: Boolean
+  isFavorite: boolean
 
 
   ngOnInit(): void {
@@ -24,10 +24,16 @@ export class DrinkMinifiedComponent implements OnInit {
     })
   }
 
-  onToggleFavorite() {
-    (this.isFavorite) ? this.favoriteService.removeFavorite(this.cocktail._id) :
+  onToggleFavorite():void {
+    console.log('is favorite',this.isFavorite)
+    if (this.isFavorite) {
+      this.isFavorite = false
+      this.favoriteService.removeFavorite(this.cocktail._id)
+    } else {
+      this.isFavorite = true
       this.favoriteService.addToFavorites(this.cocktail)
-    this.isFavorite = !this.isFavorite
+    }
+
   }
 
 }

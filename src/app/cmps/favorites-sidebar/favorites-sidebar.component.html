@@ -1,8 +1,17 @@
 
-
-
+<div class="favorites-container">
     <h2>Favorites</h2>
+    <hr />
+    <div class="favorite-items-container">
+    <div *ngIf="!favorites.length" class="empty-state">
+        <h4>No favorites yet</h4>
+        <p>Why not add some now?</p>
+        <!-- <div class="logo-container"> -->
+            <img src="../../../assets/imgs/cocktail-maker.svg" alt="logo" />
+        <!-- </div> -->
+    </div>
     <div *ngFor="let favorite of favorites">
         <app-drink-minified [cocktail]="favorite"></app-drink-minified>
     </div>
-
+</div>
+</div>
